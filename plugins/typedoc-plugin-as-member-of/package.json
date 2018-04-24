@@ -1,6 +1,6 @@
 {
   "name": "typedoc-plugin-as-member-of",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "TypeDoc plugin to 'move' declarations as members of existing classes, interfaces, objects, etc ",
   "main": "index.js",
   "scripts": {
@@ -10,6 +10,7 @@
     "prepare": "tsc",
     "clean": "rm -rf node_modules; rm -rf test/node_modules"
   },
+  "repository": "https://github.com/cancerberoSgx/typedoc-plugins-of-mine/tree/master/plugins/typedoc-plugin-as-member-of",
   "keywords": [
     "TypeDoc",
     "TypeScript",

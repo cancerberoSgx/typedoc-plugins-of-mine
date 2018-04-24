@@ -50,9 +50,12 @@ export class DeclAsMemberOf extends ConverterComponent {
     }
   }
 
-
-// !target.kindOf(ReflectionKind.Interface) && !target.kindOf(ReflectionKind.Class);
-
+  log(msg:string, error?:Error) {
+    console.log(msg);
+    if (error) {
+      console.log(error + '\n', error.stack);
+    }
+  }
   /**
    * Triggered when the converter begins resolving a project. At this point all the code was parsed and 
    * and now the converter is resolving reflection node
@@ -60,24 +63,23 @@ export class DeclAsMemberOf extends ConverterComponent {
    */
   private onBeginResolve(context: Context) {
 
-  // function isValidTargetForAsMember(target:DeclarationReflection) {
-  //   return (target.kindOf(ReflectionKind.Interface) || target.kindOf(ReflectionKind.Class)) && // types
-  //       true;
-  //       // (target.comment.signatures ? target.comment.signatures.length===1 : false)
-  // }
     // TODO: too many casting - perhaps dangerous. Is reduced by the fact that we only accept clases or interfaces as targets
     // TODO : more defensive - we are accessing without testing 
     // TODO: should ewe call context context.registerReflection ? 
     // TODO: what about signatures ( functino overloading) ? test!
 
     this.asMemberOfPool.forEach((item) => {
-      
+
+      const target = context.project.findReflectionByName(item.parentName) as DeclarationReflection;      
+      if (!target) {
+        this.log(`WARNING @asMemberOf target ${item.parentName} not found.`);
+        return;
+      }
       const sourceReflection = (item.reflection as DeclarationReflection);
-      const target = context.project.findReflectionByName(item.parentName) as DeclarationReflection;
       const sourceParent = (item.reflection.parent as DeclarationReflection);
 
       if (!(target.kindOf(ReflectionKind.Interface) || target.kindOf(ReflectionKind.Class))) {
-        console.log(`Ignoring @asMemberOf directive because target : ${item.parentName} is of unsupported type - right now only classes and interfaces declarations are allowed as target`);     // TODO: better debug message
+        this.log(`Ignoring @asMemberOf directive because target : ${item.parentName} is of unsupported type - right now only classes and interfaces declarations are allowed as target`);     // TODO: better debug message
         return;
       }
 
