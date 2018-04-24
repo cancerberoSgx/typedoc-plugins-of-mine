@@ -5,13 +5,13 @@ describe('plugin ', () => {
   beforeAll(() => {
     shell.rm('-rf', 
              'test/node_modules', 'test/out', 'test/ast.json', 'test/package-lock.json', 
-            //  'newProject',
+             'newProject',
             );
   });
   
   afterAll(() => {
     shell.rm('-rf', 'test/node_modules', 'test/out', 'test/ast.json', 'test/package-lock.json', 
-            //  'newProject',
+             'newProject',
   );
   });
 
@@ -23,7 +23,7 @@ describe('plugin ', () => {
 
     // make sure typedoc-plugin-with-name is uninstalled and generate ast-wihout.json with output without the plugin
     expect(shell.exec('yarn install').code).toBe(0);
-    expect(shell.exec('yarn remove typedoc-plugin-with-name').code).toBe(0);
+    // expect(shell.exec('yarn remove typedoc-plugin-with-name').code).toBe(0);
     // expect(shell.exec('yarn install').code).toBe(0);
     // expect(shell.exec('node -p \"require(\'typedoc-plugin-with-name\')\"').code).not.toBe(0);
     expect(shell.exec('yarn run typedoc --out out --json ast-without.json sample1.ts').code).toBe(0);

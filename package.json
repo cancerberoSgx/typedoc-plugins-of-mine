@@ -5,8 +5,9 @@
   "description": "typedoc plugins I'm making for my needs and learning ",
   "scripts": {
     "run-all": "yarn run wsrun",
-    "test": "echo \"No tests here yet, it's fine\" && exit 0",
-    "clean": "yarn run-all clean; rm -rf node_modules build"
+    "test": "yarn run-all test",
+    "clean": "yarn run-all clean; rm -rf node_modules build",
+		"test-clone": "rm -rf ../typedoc-plugins-of-mine-test; mkdir ../typedoc-plugins-of-mine-test; cd ../typedoc-plugins-of-mine-test; git clone ../typedoc-plugins-of-mine/.git;  cd typedoc-plugins-of-mine ; yarn install ; yarn test"
   },
   "keywords": [
     "typedoc",
