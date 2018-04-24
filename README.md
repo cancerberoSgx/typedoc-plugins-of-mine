@@ -1,26 +1,23 @@
 # About
-my typedoc plugins some are really useful, others just learning / research projects
 
-# Install and generate all the docs
+My typedoc plugins some are really useful, others just learning / research projects. This is a mono-repo with several projects. A list in order of "importance": 
+
+
+###(https://github.com/cancerberoSgx/typedoc-plugins-of-mine/tree/master/plugins/typedoc-plugin-as-member-of)[typedoc-plugin-as-member]
+
+Move a declaration so it appear as a member of an existin class or interface. Particularly useful to define events as separarte function declarations without contaminating your classes & interfaces. 
+
+###(https://github.com/cancerberoSgx/typedoc-plugins-of-mine/tree/master/plugins/typedoc-plugin-with-name)[typedoc-plugin-with-name]
+
+Customize the name of any entity. Sometimes we just need to use an alias and not the real name that a member as in the code, you know?
+
+
+# Install and run all the tests
 
 ```sh
 yarn 
-yarn run-all doc
-```
-
-Note with `yarn run-all X` you run X command in all yarn workspaces, for example, 
-
-```sh
+yarn run-all install 
 yarn run-all test
 ```
 
 
-# TODO: things I don't know how to do, yet
-
-## typedoc
-
- * "this method trigger the event foo of that class". can do it in jsdoc but not in typedoc
-
-*
-    // TODO: IDEA: what if we biuld a event emitter with generics that doesn't 
-    // extends node event emitter but just delegate the methods to a property???
