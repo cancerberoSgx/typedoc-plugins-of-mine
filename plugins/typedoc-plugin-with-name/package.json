@@ -1,0 +1,36 @@
+{
+  "name": "typedoc-plugin-with-name",
+  "version": "1.0.2",
+  "description": "TypeDoc plugin to enforce the use of the @name tag to declare entity names. ",
+  "main": "index.js",
+  "scripts": {
+    "test": "ts-node -r tsconfig-paths/register node_modules/jasmine/bin/jasmine",
+    "watch": " tsc --watch",
+    "build": "tsc",
+    "prepare": "tsc",
+    "clean": "rm -rf node_modules; rm -rf test/node_modules"
+  },
+  "keywords": [
+    "TypeDoc",
+    "TypeScript",
+    "JavaScript",
+    "jsdoc",
+    "documentation"
+  ],
+  "author": "Sebastián Gurin",
+  "license": "MIT",
+  "peerDependencies": {
+    "typedoc": ">=0.7 <1.11.1"
+  },
+  "devDependencies": {
+    "@types/jasmine": "^2.8.6",
+    "jasmine": "^3.1.0",
+    "shelljs": "^0.8.1",
+    "ts-node": "^6.0.0",
+    "tsconfig-paths": "^3.3.1",
+    "tslint": "^5.9.1",
+    "tslint-config-airbnb": "^5.8.0",
+    "typedoc": "~0.11.1",
+    "typescript": "^2.8.3"
+  }
+}

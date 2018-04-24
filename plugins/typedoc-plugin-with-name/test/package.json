@@ -1,0 +1,17 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "sample project using typedoc-plugin-with-name for testing and dev",
+  "main": "index.js",
+  "scripts": {
+    "test1": "typedoc --out out --plugin typedoc-plugin-with-name --json ast.json --tsconfig ../tsconfig.json sample1.ts"
+  },
+  "keywords": [],
+  "author": "sg",
+  "license": "ISC",
+  "devDependencies": {
+    "typedoc": "^0.11.1",
+    "typedoc-plugin-with-name": "file:..",
+    "typescript": "^2.8.3"
+  }
+}

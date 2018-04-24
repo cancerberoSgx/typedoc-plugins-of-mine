@@ -1,0 +1,26 @@
+{
+  "private": true,
+  "name": "typedoc-plugins-of-mine",
+  "version": "1.0.0",
+  "description": "typedoc plugins I'm making for my needs and learning ",
+  "scripts": {
+    "run-all": "yarn run wsrun",
+    "test": "echo \"No tests here yet, it's fine\" && exit 0",
+    "clean": "yarn run-all clean; rm -rf node_modules build docs"
+  },
+  "keywords": [
+    "typedoc",
+    "typescript",
+    "documentation",
+    "jsdoc",
+    "JavaScript"
+  ],
+  "author": "Sebastián Gurin",
+  "plugins": [
+    "plugins/*"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "wsrun": "^3.0.0"
+  }
+}
