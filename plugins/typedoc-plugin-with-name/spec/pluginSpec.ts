@@ -21,18 +21,18 @@ describe('plugin ', () => {
     shell.cp('-r', 'test' ,'newProject');
     shell.cd('newProject');
 
-    // make sure typedoc-plugin-respect-name-tag is uninstalled and generate ast-wihout.json with output without the plugin
-    expect(shell.exec('npm install').code).toBe(0);
-    expect(shell.exec('npm remove typedoc-plugin-respect-name-tag').code).toBe(0);
-    expect(shell.exec('npm install').code).toBe(0);
-    expect(shell.exec('node -p \"require(\'typedoc-plugin-respect-name-tag\')\"').code).not.toBe(0);
-    expect(shell.exec('node node_modules/typedoc/bin/typedoc --out out --json ast-without.json sample1.ts').code).toBe(0);
+    // make sure typedoc-plugin-with-name is uninstalled and generate ast-wihout.json with output without the plugin
+    expect(shell.exec('yarn install').code).toBe(0);
+    expect(shell.exec('yarn remove typedoc-plugin-with-name').code).toBe(0);
+    // expect(shell.exec('yarn install').code).toBe(0);
+    // expect(shell.exec('node -p \"require(\'typedoc-plugin-with-name\')\"').code).not.toBe(0);
+    expect(shell.exec('yarn run typedoc --out out --json ast-without.json sample1.ts').code).toBe(0);
 
-    // make sure typedoc-plugin-respect-name-tag is installed and enerate ast.json with the output with the plugin
-    // expect(shell.exec('npm i typedoc-plugin-respect-name-tag').code).toBe(0); // installing from npm
-    expect(shell.exec('npm i ..').code).toBe(0); // installing from this project folder
-    expect(shell.exec('node -p \"require(\'typedoc-plugin-respect-name-tag\')\"').code).toBe(0);
-    expect(shell.exec('node node_modules/typedoc/bin/typedoc --plugin typedoc-plugin-respect-name-tag --out out --json ast-with.json sample1.ts').code).toBe(0);
+    // make sure typedoc-plugin-with-name is installed and enerate ast.json with the output with the plugin
+    // expect(shell.exec('yarn i typedoc-plugin-with-name').code).toBe(0); // installing from yarn
+    expect(shell.exec('yarn add file:..').code).toBe(0); // installing from this project folder
+    // expect(shell.exec('node -p \"require(\'typedoc-plugin-with-name\')\"').code).toBe(0);
+    expect(shell.exec('yarn run typedoc --plugin typedoc-plugin-with-name --out out --json ast-with.json sample1.ts').code).toBe(0);
 
     const astWithout = shell.cat('ast-without.json').toString();
     const astWith = shell.cat('ast-with.json').toString();

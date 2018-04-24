@@ -3,36 +3,42 @@ import * as shell from 'shelljs';
 describe('plugin ', () => {
  
   beforeAll(() => {
-    // shell.rm('-rf', 
-            //  'test/node_modules', 'test/out', 'test/ast.json', 'test/package-lock.json', 
-            //  'newProject',
-            // );
+    shell.rm('-rf', 
+             'test/node_modules', 'test/out', 'test/ast.json', 'test/package-lock.json', 
+             'newProject',   );
   });
   
   afterAll(() => {
-    // shell.rm('-rf', 'test/node_modules', 'test/out', 'test/ast.json', 'test/package-lock.json', 
-            //  'newProject',
-  // );
+    shell.rm('-rf', 'test/node_modules', 'test/out', 'test/ast.json', 'test/package-lock.json', 
+             'newProject',  );
+  // expect(shell.exec('yarn add file:..').code).toBe(0); // because sometimes when test
   });
 
-  it('should move entities annotated with @asMemberOf and if it is marked as event should motate it as an event', () => {
+  it('should move entities annotated with @asMemberOf and if it is marked as event should mutate it as an event', () => {
    
     // make a copy of a working project
-    // shell.cp('-r', 'test' ,'newProject');
+    shell.cp('-r', 'test' ,'newProject');
     shell.cd('newProject');
 
     // make sure typedoc-plugin-as-member-of is uninstalled and generate ast-wihout.json with output without the plugin
-    // expect(shell.exec('npm install').code).toBe(0);
-    // expect(shell.exec('npm remove typedoc-plugin-as-member-of').code).toBe(0);
-    // expect(shell.exec('npm install').code).toBe(0);
-    // expect(shell.exec('node -p \"require(\'typedoc-plugin-as-member-of\')\"').code).not.toBe(0);
-    // expect(shell.exec('node node_modules/typedoc/bin/typedoc --out out-without --json ast-without.json sample1.ts').code).toBe(0);
 
-    // // make sure typedoc-plugin-as-member-of is installed and enerate ast.json with the output with the plugin
-    // // expect(shell.exec('npm i typedoc-plugin-as-member-of').code).toBe(0); // installing from npm
-    // expect(shell.exec('npm i ..').code).toBe(0); // installing from this project folder
-    // expect(shell.exec('node -p \"require(\'typedoc-plugin-as-member-of\')\"').code).toBe(0);
-    // expect(shell.exec('node node_modules/typedoc/bin/typedoc --plugin typedoc-plugin-as-member-of --out out --json ast-with.json sample1.ts').code).toBe(0);
+    expect(shell.exec('yarn install').code).toBe(0);
+    expect(shell.exec('yarn remove typedoc-plugin-as-member-of').code).toBe(0);
+    // expect(shell.exec('yarn install').code).toBe(0);
+    // let nodeCmd = 'node -p \"require(\'typedoc-plugin-as-member-of\')\"'
+    // console.log('EXECUTING CMD '+nodeCmd)
+    // expect(shell.exec(nodeCmd).code).not.toBe(0);
+    expect(shell.exec('yarn run typedoc --out out-without --json ast-without.json sample1.ts').code).toBe(0);
+
+    // make sure typedoc-plugin-as-member-of is installed and geerates ast.json with the output with the plugin
+    // expect(shell.exec('yarn i typedoc-plugin-as-member-of').code).toBe(0); // installing from npmjs.org
+
+    expect(shell.exec('yarn add file:..').code).toBe(0); // installing from ocal project. 
+
+    // nodeCmd = 'node -p \"require(\'typedoc-plugin-as-member-of\')\"'
+    // console.log('EXECUTING CMD '+nodeCmd)
+    // expect(shell.exec(nodeCmd).code).toBe(0);
+    expect(shell.exec('yarn run typedoc --plugin typedoc-plugin-as-member-of --out out --json ast-with.json sample1.ts').code).toBe(0);
 
     const astWithout = JSON.parse(shell.cat('ast-without.json').toString());
     const astWith = JSON.parse(shell.cat('ast-with.json').toString());
@@ -45,7 +51,6 @@ describe('plugin ', () => {
     expect(SecondAttemptEmitter.name).toBe('SecondAttemptEmitter')
     expect(SecondAttemptEmitter.children.map(c=>c.name)).toContain('beforeEngineStart')
     
-    shell.cd('..');
     console.log('TEST END');
   });
 });
