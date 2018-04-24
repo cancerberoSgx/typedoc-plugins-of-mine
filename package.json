@@ -17,7 +17,7 @@
   ],
   "author": "Sebastián Gurin",
   "workspaces": [
-    "plugins/*"
+    "./plugins/*"
   ],
   "license": "MIT",
   "devDependencies": {
