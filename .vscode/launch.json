@@ -19,6 +19,22 @@
             "cwd": "${workspaceFolder}/test",
             "program": "${workspaceFolder}/test/node_modules/typedoc/bin/typedoc",
             "sourceMaps": true
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "protocol": "inspector",
+            "name": "typedoc sample1.ts",
+            "args": [
+                "--plugin", "typedoc-plugin-with-name", "--out", "out", "--json", "ast.json","--tsconfig", "../tsconfig.json",  "sample1.ts"],
+            "runtimeArgs": [
+                "--inspect",
+                "--inspect-brk",
+            ],
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}/test",
+            "program": "${workspaceFolder}/test/node_modules/typedoc/bin/typedoc",
+            "sourceMaps": true
         }
     ]
 }

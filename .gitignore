@@ -15,5 +15,4 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-typedoc-extension-tutorial
-typedoc-tutorial-basic
+test/out

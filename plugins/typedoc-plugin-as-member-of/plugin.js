@@ -86,13 +86,13 @@ let DeclAsMemberOf = class DeclAsMemberOf extends components_1.ConverterComponen
     }
 };
 DeclAsMemberOf = __decorate([
-    components_1.Component({ name: 'decl-as-member-of' })
+    components_1.Component({ name: 'as-member-of' })
 ], DeclAsMemberOf);
 exports.DeclAsMemberOf = DeclAsMemberOf;
 // Finally we export the plugin class as a TypeDoc Plugin - this is we register it as a 
 // TypeDoc component with our name 'respect-name-tag'
 function default_1(pluginHost) {
-    pluginHost.owner.converter.addComponent('decl-as-member-of', DeclAsMemberOf);
+    pluginHost.owner.converter.addComponent('as-member-of', DeclAsMemberOf);
 }
 exports.default = default_1;
 //# sourceMappingURL=plugin.js.map

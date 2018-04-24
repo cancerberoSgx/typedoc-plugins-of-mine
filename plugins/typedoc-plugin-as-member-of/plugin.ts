@@ -6,7 +6,7 @@ import { DeclarationReflection, SignatureReflection } from 'typedoc/dist/lib/mod
 /**
  * 
  */
-@Component({ name: 'decl-as-member-of' })
+@Component({ name: 'as-member-of' })
 export class DeclAsMemberOf extends ConverterComponent {
   asMemberOfPool: AsMemberOfPool[];
 
@@ -108,5 +108,5 @@ interface AsMemberOfPool {
 // Finally we export the plugin class as a TypeDoc Plugin - this is we register it as a 
 // TypeDoc component with our name 'respect-name-tag'
 export default function (pluginHost) {
-  pluginHost.owner.converter.addComponent('decl-as-member-of', DeclAsMemberOf);
+  pluginHost.owner.converter.addComponent('as-member-of', DeclAsMemberOf);
 }

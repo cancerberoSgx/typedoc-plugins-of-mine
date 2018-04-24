@@ -28,7 +28,7 @@ import { DeclarationReflection } from 'typedoc/dist/lib/models';
  * ```
  * 
  */
-@Component({ name: 'respect-name-tag' })
+@Component({ name: 'with-name' })
 export class RespectNameTagPlugin extends ConverterComponent {
   private respectThisNames:RespectNameTagRename[];
   initialize() {
@@ -107,7 +107,7 @@ interface RespectNameTagRename {
 }
 
 // Finally we export the plugin class as a TypeDoc Plugin - this is we register it as a 
-// TypeDoc component with our name 'respect-name-tag'
+// TypeDoc component with our name 'with-name'
 export default function (pluginHost) {
-  pluginHost.owner.converter.addComponent('respect-name-tag', RespectNameTagPlugin);
+  pluginHost.owner.converter.addComponent('with-name', RespectNameTagPlugin);
 }

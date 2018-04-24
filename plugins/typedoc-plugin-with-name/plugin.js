@@ -95,13 +95,13 @@ let RespectNameTagPlugin = class RespectNameTagPlugin extends components_1.Conve
     }
 };
 RespectNameTagPlugin = __decorate([
-    components_1.Component({ name: 'respect-name-tag' })
+    components_1.Component({ name: 'with-name' })
 ], RespectNameTagPlugin);
 exports.RespectNameTagPlugin = RespectNameTagPlugin;
 // Finally we export the plugin class as a TypeDoc Plugin - this is we register it as a 
-// TypeDoc component with our name 'respect-name-tag'
+// TypeDoc component with our name 'with-name'
 function default_1(pluginHost) {
-    pluginHost.owner.converter.addComponent('respect-name-tag', RespectNameTagPlugin);
+    pluginHost.owner.converter.addComponent('with-name', RespectNameTagPlugin);
 }
 exports.default = default_1;
 //# sourceMappingURL=plugin.js.map
