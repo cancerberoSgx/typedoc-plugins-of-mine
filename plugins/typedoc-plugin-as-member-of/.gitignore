@@ -14,7 +14,7 @@ types
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-test/out
+test/out*
 test/ast.json
 test/ast-without.json
 newProject
