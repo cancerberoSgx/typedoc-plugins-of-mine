@@ -1,23 +1,24 @@
 # About
 
-[TypeDoc](http://typedoc.org) plugin   to 'move' declarations as members of existing classes, interfaces, objects, etc 
+[TypeDoc](http://typedoc.org) plugin to 'move' declarations as members of existing classes, interfaces, objects, etc 
 
-Example - declare event / event handlers as external functions and use @decl-as-member-of so they appear as members of existing classes/(interfaces) 
+Example - declare event as a function outside your class / interface and use @decl-as-member-of so they appear as members of existing classes/(interfaces) 
 
 ```ts
-/**
- * a second event emitter
- */
+/** a second event emitter */
 interface SecondAttemptEmitter{
+  /** start the engines of this emitter, probably firing a [[beforeEngineStart]] event */
   startEngines();
 }
 /**
- * @decl-as-member-of SecondAttemptEmitter
+ * @asMemberOf SecondAttemptEmitter
+ * @event
  * @param x 
  */
 declare function beforeEngineStart(engineData: {suit: string; card: number; }[]): number;
+```
 
-```ts
+Because the funciont has the @event anntation the plugin will also mutate the funcion into an event besides moving it. 
 
 # Usage
 

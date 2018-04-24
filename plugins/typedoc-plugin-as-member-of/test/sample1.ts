@@ -1,7 +1,6 @@
-/**
- * a second event emitter
- */
+/** a second event emitter */
 interface SecondAttemptEmitter{
+  /** start the engines of this emitter, probably firing a [[beforeEngineStart]] event */
   startEngines();
 }
 /**
