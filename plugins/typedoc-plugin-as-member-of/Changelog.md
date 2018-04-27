@@ -5,4 +5,8 @@
 
 # 1.0.1
 
+ * fix issue when node is undefined
+
+# 1.0.2
+
  * 

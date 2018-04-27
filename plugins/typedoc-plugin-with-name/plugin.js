@@ -58,7 +58,7 @@ let RespectNameTagPlugin = class RespectNameTagPlugin extends components_1.Conve
      * @param node  The node that is currently processed if available.
      */
     onDeclaration(context, reflection, node) {
-        if (node.symbol && node.jsDoc) {
+        if (node && node.symbol && node.jsDoc) {
             let tags = [];
             node.jsDoc.forEach(node => tags = tags.concat((node.tags || [])
                 .filter(tag => tag.tagName && tag.tagName.text === 'name')));

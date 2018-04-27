@@ -57,7 +57,7 @@ export class RespectNameTagPlugin extends ConverterComponent {
    * @param node  The node that is currently processed if available.
    */
   private onDeclaration(context: Context, reflection: Reflection, node?) {
-    if (node.symbol && node.jsDoc) {
+    if (node && node.symbol && node.jsDoc) {
       let tags = [];
       node.jsDoc.forEach(node =>
         tags = tags.concat(
