@@ -22,7 +22,7 @@ Because the function has the @event annotation the plugin will also mutate the f
 
 # Output example
 
- * https://cancerberosgx.github.io/perplexed-wars/docs/interfaces/gameframeworkevent.html
+ * https://cancerberosgx.github.io/perplexed-wars/docs/interfaces/igameframework.html
  * https://cancerberosgx.github.io/plugin-container/interfaces/iplugincontainer.html
 
 
